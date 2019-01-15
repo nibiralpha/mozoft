@@ -1,0 +1,4 @@
+var excludes = [
+    'cat',
+    'dog'
+];

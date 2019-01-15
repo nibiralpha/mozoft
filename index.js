@@ -1,9 +1,26 @@
 $.get("http://localhost:3000/home", function (keys) {
+    // console.log(keys);
+    var regex;
+    // \b(bla hello)
 
     if (keys && keys.keywords && keys.keywords.length > 0) {
         keys.keywords.forEach(key => {
-            $("#container").append("<div id='" + key._id + "'>" + key.keyword + "</div>");
+            var matched = false;
 
+            for (var i = 0; i < excludes.length; i++) {
+                regex = new RegExp(excludes[i], 'gi');
+                
+                var found = key.keyword.match(regex);
+                
+                if (found != null) {
+                    matched = true;
+                    return;
+                }
+            }
+            
+            if(!matched){
+                $("#container").append("<div id='" + key._id + "'>" + key.keyword + "</div>");
+            }
         });
     }
 });
