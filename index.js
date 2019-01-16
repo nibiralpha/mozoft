@@ -8,7 +8,8 @@ $.get("http://localhost:3000/home", function (keys) {
             var matched = false;
 
             for (var i = 0; i < excludes.length; i++) {
-                regex = new RegExp(excludes[i], 'gi');
+                regex = new RegExp('\\' +  'b(' + excludes[i] + ')', 'gi');
+                // console.log(regex);
                 
                 var found = key.keyword.match(regex);
                 
