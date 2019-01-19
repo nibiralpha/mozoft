@@ -50,7 +50,8 @@ function doOver() {
         },
         function (data, status) {
             if (data && data.id != null) {
-                window.open('https://www.google.com/?#q=' + searchTxt);
+                // window.open('https://www.google.com/?#q=' + searchTxt);
+                window.open('https://www.google.com/search?gl=us&hl=en&pws=0&q=' + searchTxt);
                 count++;
             }
         });
