@@ -2,7 +2,7 @@ $.get("http://localhost:3000/home", function (keys) {
     // console.log(keys);
     var regex;
     // \b(bla hello)
-
+    var c = 0;
     if (keys && keys.keywords && keys.keywords.length > 0) {
         keys.keywords.forEach(key => {
             var matched = false;
@@ -20,6 +20,8 @@ $.get("http://localhost:3000/home", function (keys) {
             }
             
             if(!matched){
+                c++;
+                $("#count").html("total:" + c);
                 $("#container").append("<div id='" + key._id + "'>" + key.keyword + "</div>");
             }
         });
